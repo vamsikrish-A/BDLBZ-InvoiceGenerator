@@ -90,6 +90,6 @@ public class InvoiceGeneratorTest {
         double distance = 0.1;
         int time = 2;
         double premiumFare = invoiceGenerator.calculatePremiumFare(distance, time);
-        Assertions.assertEquals(0, premiumFare,0.0);
+        Assertions.assertEquals(20, premiumFare,0.0);
     }
 }

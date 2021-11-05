@@ -9,6 +9,9 @@ public class InvoiceGenerator {
     private static final double MINIMUM_COST_PER_KM = 10.0;
     private static final int COST_PER_TIME = 1;
     private static final double MINIMUM_FARE = 5.0;
+    private static final double PREMIUM_COST_PER_KM = 15.0;
+    private static final int PREMIUM_COST_PER_MINUTE = 2;
+    private static final double MINIMUM_PREMIUM_FARE = 20;
 
     /*
     * Method calculating Fare for the given distance and time
@@ -31,6 +34,7 @@ public class InvoiceGenerator {
     }
 
     public double calculatePremiumFare(double distance, int time) {
-        return 0;
+        double totalFare = distance * PREMIUM_COST_PER_KM + time * PREMIUM_COST_PER_MINUTE;
+        return Math.max(totalFare, MINIMUM_PREMIUM_FARE);
     }
 }
