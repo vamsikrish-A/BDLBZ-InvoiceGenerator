@@ -8,12 +8,17 @@ public class InvoiceSummary {
     private final double totalFare;
     private final double averageFare;
 
+    //constructor
     public InvoiceSummary(int fare, double rides) {
         this.numberOfRides = rides;
         this.totalFare = fare;
         this.averageFare = this.totalFare/ this.numberOfRides;
 
     }
+    /*
+    * taking multiple rides with userID
+    * store list of multiple rides
+    * */
     Map<Integer, InvoiceSummary> userId = new HashMap<>();
 
     public Map<Integer, InvoiceSummary> getUserId() {

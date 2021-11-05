@@ -24,6 +24,10 @@ public class InvoiceGenerator {
         return totalFare;
     }
 
+    /*
+    * calculated fare for multiple rides gives fare
+    * refactored  for calculating fare for invoice summary with multiple rides
+    * */
     public InvoiceSummary calculateFare(Ride[] rides) {
         double totalFare =0;
         for (Ride ride: rides) {
@@ -33,6 +37,8 @@ public class InvoiceGenerator {
         return new InvoiceSummary(rides.length, totalFare);
     }
 
+    /*
+    * method for calculating premium fare for premium rates (bonus)*/
     public double calculatePremiumFare(double distance, int time) {
         double totalFare = distance * PREMIUM_COST_PER_KM + time * PREMIUM_COST_PER_MINUTE;
         return Math.max(totalFare, MINIMUM_PREMIUM_FARE);
