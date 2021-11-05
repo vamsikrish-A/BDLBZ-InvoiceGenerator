@@ -29,8 +29,8 @@ public class InvoiceGeneratorTest {
         Ride[] rides = {new Ride(0.0, 0),
                 new Ride(0.0, 1)
         };
-        double fare = invoiceGenerator.calculateFare(rides);
-        Assertions.assertEquals(0.0, fare,0.0);
+        InvoiceSummary fare = invoiceGenerator.calculateFare(rides);
+        Assertions.assertEquals(0.0, fare, String.valueOf(0.0));
 
     }
     @Test
@@ -39,8 +39,8 @@ public class InvoiceGeneratorTest {
         Ride[] rides = {new Ride(2.0, 5),
                 new Ride(0.1, 1)
         };
-        double fare = invoiceGenerator.calculateFare(rides);
-        Assertions.assertEquals(30, fare,0.0);
+        InvoiceSummary fare = invoiceGenerator.calculateFare(rides);
+        Assertions.assertEquals(30, fare, String.valueOf(0.0));
 
     }
 
@@ -50,8 +50,18 @@ public class InvoiceGeneratorTest {
         Ride[] rides = {new Ride(0.0, 0),
                 new Ride(0.0, 1)
         };
-        double summary = invoiceGenerator.calculateFare(rides);
+        InvoiceSummary summary = invoiceGenerator.calculateFare(rides);
         InvoiceSummary expectedInvoiceSummary = new InvoiceSummary(0, 0.0);
+        Assertions.assertEquals(expectedInvoiceSummary,summary);
+    }
+    @Test
+    public void givenMultipleRides_ShouldReturnInvoiceSummaryEquals() {
+        InvoiceGenerator invoiceGenerator = new InvoiceGenerator();
+        Ride[] rides = {new Ride(2.0, 5),
+                new Ride(0.1, 1)
+        };
+        InvoiceSummary summary = invoiceGenerator.calculateFare(rides);
+        InvoiceSummary expectedInvoiceSummary = new InvoiceSummary(2, 30.0);
         Assertions.assertEquals(expectedInvoiceSummary,summary);
     }
 }
