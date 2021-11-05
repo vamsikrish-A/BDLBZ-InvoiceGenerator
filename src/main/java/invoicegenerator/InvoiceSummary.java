@@ -1,5 +1,6 @@
 package invoicegenerator;
 
+import java.util.HashMap;
 import java.util.Map;
 
 public class InvoiceSummary {
@@ -13,6 +14,18 @@ public class InvoiceSummary {
         this.averageFare = this.totalFare/ this.numberOfRides;
 
     }
+    Map<Integer, InvoiceSummary> userId = new HashMap<>();
+
+    public Map<Integer, InvoiceSummary> getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int id, InvoiceSummary summary) {
+        this.userId = userId;
+
+    }
+
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -21,11 +34,6 @@ public class InvoiceSummary {
         return Double.compare(summary.numberOfRides, numberOfRides) == 0 && totalFare == summary.totalFare && Double.compare(summary.averageFare, averageFare) == 0;
     }
 
-    public void setUserId(int i, InvoiceSummary summary) {
 
-    }
 
-    public Map<Integer, InvoiceSummary> getUserId() {
-        return null;
-    }
 }
