@@ -29,4 +29,8 @@ public class InvoiceGenerator {
         }
         return new InvoiceSummary(rides.length, totalFare);
     }
+
+    public double calculatePremiumFare(double distance, int time) {
+        return 0;
+    }
 }

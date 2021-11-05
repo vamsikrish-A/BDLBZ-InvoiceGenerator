@@ -83,4 +83,13 @@ public class InvoiceGeneratorTest {
 
         Assertions.assertEquals(userID, id.getUserId());
     }
+
+    @Test
+    public void givesPremiumRates_ShouldReturnMinimumFare() {
+        InvoiceGenerator invoiceGenerator = new InvoiceGenerator();
+        double distance = 0.1;
+        int time = 2;
+        double premiumFare = invoiceGenerator.calculatePremiumFare(distance, time);
+        Assertions.assertEquals(0, premiumFare,0.0);
+    }
 }
