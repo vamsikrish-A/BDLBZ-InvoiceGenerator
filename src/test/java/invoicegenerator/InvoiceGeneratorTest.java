@@ -3,6 +3,9 @@ package invoicegenerator;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class InvoiceGeneratorTest {
     @Test
     public void givenDistanceAndTime_ShouldReturnTotalFare() {
@@ -63,5 +66,21 @@ public class InvoiceGeneratorTest {
         InvoiceSummary summary = invoiceGenerator.calculateFare(rides);
         InvoiceSummary expectedInvoiceSummary = new InvoiceSummary(2, 30.0);
         Assertions.assertEquals(expectedInvoiceSummary,summary);
+    }
+    @Test
+    public void getsTheListOfRides_UsingUserID() {
+        InvoiceGenerator invoiceGenerator = new InvoiceGenerator();
+        Ride[] rides = {new Ride(2.0, 5),
+                new Ride(0.1, 1)
+        };
+        InvoiceSummary summary = invoiceGenerator.calculateFare(rides);
+        InvoiceSummary id = new InvoiceSummary(2, 30.0);
+        id.setUserId(1, summary);
+        Map<Integer, InvoiceSummary> userID = new HashMap<>();
+        for (Map.Entry<Integer, InvoiceSummary> integerInvoiceSummaryEntry : userID.entrySet()) {
+            integerInvoiceSummaryEntry.getValue();
+        }
+
+        Assertions.assertEquals(userID, id.getUserId());
     }
 }
